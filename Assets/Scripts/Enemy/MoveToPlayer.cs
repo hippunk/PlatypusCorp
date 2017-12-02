@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveToPlayer : MonoBehaviour {
-	public GameObject target;
+	private GameObject target;
 	public float translationSpeed = 2.0f;
 	public float angularSpeed = 2.0f;
 
 	// Use this for initialization
 	void Start () {
-		Vector3 lookPos = target.transform.position - transform.position;
-		transform.rotation = Quaternion.LookRotation (Vector3.forward,lookPos);
+
+		target = GameObject.FindGameObjectWithTag ("Player");
+
+			Vector3 lookPos = target.transform.position - transform.position;
+			transform.rotation = Quaternion.LookRotation (Vector3.forward, lookPos);
 
 	}
 	
@@ -25,6 +28,7 @@ public class MoveToPlayer : MonoBehaviour {
 		/*float angle = Vector3.SignedAngle (target.transform.position, transform.position, Vector3.forward);
 
 		transform.rotation = Quaternion.Euler (0, 0, angle) * transform.rotation;*/
+
 
 		Vector3 lookPos = target.transform.position - transform.position;
 

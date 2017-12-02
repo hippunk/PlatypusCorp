@@ -14,6 +14,7 @@ public class MainLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (launch) {
+			Debug.Log ("Launched test");
 			factory.generate (test);
 			launch = false;
 		}

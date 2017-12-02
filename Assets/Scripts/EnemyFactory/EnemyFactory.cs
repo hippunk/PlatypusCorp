@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour {
 	public List<Component> movementScriptList;
-	public GameObject target;
 
 	// Use this for initialization
 	void Start () {
@@ -23,9 +22,14 @@ public class EnemyFactory : MonoBehaviour {
 		foreach (Transform child in pack.transform) {
 			//randomIndex = Random.Range ((int)0, pack.transform.childCount);
 			//child.gameObject.AddComponent (movementScriptList[randomIndex]);
-			if (target)
-				child.GetComponent<MoveToPlayer> ().target = target;
-			child.GetComponent<MoveToPlayer>().angularSpeed += Random.Range(-0.5f, 0.5f);
+			if (Random.Range (0.0f, 1.0f) < 0.3f) {
+				child.GetComponent<MoveToPlayer>().angularSpeed = 0;
+				child.GetComponent<MoveToPlayer>().translationSpeed += 2;
+			}
+			else
+				child.GetComponent<MoveToPlayer>().angularSpeed += Random.Range(-0.5f, 0.5f);
+			child.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);
+
 		}
 	}
 }

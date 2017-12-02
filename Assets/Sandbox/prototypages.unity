@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementScriptList: []
+  target: {fileID: 556778584}
 --- !u!4 &958912853
 Transform:
   m_ObjectHideFlags: 0
