@@ -16,7 +16,8 @@ public class MoveToPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Move ();
+		if (target)
+			Move ();
 	}
 
 	void Move(){
