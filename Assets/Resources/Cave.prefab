@@ -195,6 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e8693498fd00a448ab7551343292b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls: {fileID: 0}
-  cave: {fileID: 0}
-  is2D: 0
+  walls: {fileID: 33000013720961978}
+  cave: {fileID: 33000010719936424}
+  is2D: 1
