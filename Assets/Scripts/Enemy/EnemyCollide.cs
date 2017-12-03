@@ -32,7 +32,7 @@ public class EnemyCollide : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer> ().color = Color.gray;
 			EnemyPolute polute = GetComponent<EnemyPolute> ();
 			if (polute != null) {
-				Debug.Log ("polute");
+				//Debug.Log ("polute");
 				polute.polute ();
 				Destroy (polute);
 			}

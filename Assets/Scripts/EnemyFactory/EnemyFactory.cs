@@ -4,24 +4,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour {
+	
 	public List<GameObject> spawnPointList;
 	public GameObject _dynamics_;
 	private bool workRequest;
 	private bool working;
 	public Camera mainCamera;
 	public float SpawnCycleTime;
+
+	private SpawnPatterns spPat;
 	private List<Object> enemyPrefabs;
 	private int difficulty;
+	//private List<DifficultyPool> difficultiesPool = new List<DifficultyPool> ();
+	//private List<int>[] patternMapper = new Dictionary<int,int> ();
 
 	// Use this for initialization
 	void Start () {
 		working = false;
+		spPat = GetComponent<SpawnPatterns> ();
 		SpawnCycleTime = 5.0f;
 		enemyPrefabs = new List<Object> ();
 		for (int i = 1; i <= 5; ++i) {
 			enemyPrefabs.Add (Resources.Load("Prefabs/EnemyTemplate/Enemy" + i));
 		}
 		difficulty = 1;
+
+		//Load datas from patterns informations
+	
 	}
 	
 	// Update is called once per frame
@@ -36,18 +45,40 @@ public class EnemyFactory : MonoBehaviour {
 		workRequest = true;
 	}
 
+
+
 	IEnumerator makeEnemies(){
 		Object bundle;
 		GameObject instance;
 
 		working = true;
 		while (working){
-			bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)12));
-			instance = Instantiate (bundle) as GameObject;
-			instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
+			//Set dificulty computation here, load spawnpattern class rather than resources.load
+			//Make a difficulty pool and a list collection ordered by difficulties
+			//Then roll dices to choose and that's ok !
 
-			generate (instance);
-			Destroy (instance);
+			//TODO HERE !
+			//Populate difficulty pool
+			Debug.Log("Difficulty : "+difficulty);
+			foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
+				Debug.Log ("\t pattern : "+go.name);
+				instance = Instantiate (go) as GameObject;
+				instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
+				generate (instance);
+				Destroy (instance);
+			}
+
+			//
+
+
+			//bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)12));
+
+
+
+
+
+
+			difficulty += 1;
 			yield return new WaitForSeconds (SpawnCycleTime);
 		}
 	}
