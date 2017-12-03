@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour {
 	public List<GameObject> spawnPointList;
+	public GameObject _dynamics_;
 	private bool workRequest;
 	private bool working;
 	public Camera mainCamera;
@@ -44,6 +45,7 @@ public class EnemyFactory : MonoBehaviour {
 			instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 
 			generate (instance);
+			Destroy (instance);
 			yield return new WaitForSeconds (SpawnCycleTime);
 		}
 	}
@@ -57,8 +59,8 @@ public class EnemyFactory : MonoBehaviour {
 
 			generatedEnemy = Instantiate (enemyPrefabs [Random.Range ((int)0, (int)enemyPrefabs.Count)]) as GameObject;
 			//Vector3 pos = generatedEnemy.transform.localPosition;
-			generatedEnemy.transform.SetParent (child);
-			generatedEnemy.transform.localPosition = new Vector3(0,0,0);
+			generatedEnemy.transform.SetParent (_dynamics_.transform);
+			generatedEnemy.transform.localPosition = child.position;
 			generatedEnemy.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);
 
 			/*if (Random.Range (0.0f, 1.0f) < 0.3f) {
