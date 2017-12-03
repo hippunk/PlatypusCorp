@@ -10,7 +10,7 @@ public class BulletFire : MonoBehaviour {
 	public int curBullet = 0;
 	public GameObject regularBullet;
 	public GameObject dummyBullet;
-
+	public bool reload = true;
 
 	private float rofTimer;
 	public GameObject[] bulletList;
@@ -35,7 +35,7 @@ public class BulletFire : MonoBehaviour {
 
 
 		if (Input.GetMouseButton(0) && rofTimer <= 0) {
-
+			reload = true;
 			rofTimer = fireRate;
 			Instantiate (bulletList[curBullet],transform.position,transform.rotation);
 
