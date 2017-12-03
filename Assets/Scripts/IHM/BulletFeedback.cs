@@ -24,8 +24,12 @@ public class BulletFeedback : MonoBehaviour {
 			foreach (Transform child in transform) {
 				Destroy (child.gameObject);
 			}
-			Debug.Log ("print");
-			for (int i = nbCard-1; i >=0 ; i--) {
+			/*for (int i = nbCard-1; i >=0 ; i--) {
+				//Debug.Log ("i : "+((i+gun.curBullet)%gun.maxBullet)+"  lim : "+nbCard);
+				GameObject tmpCard = Instantiate (card,this.gameObject.transform);
+				tmpCard.transform.GetChild(0).GetComponentInChildren<Image> ().sprite = gun.bulletList [(i+gun.curBullet)%gun.maxBullet].GetComponent<SpriteRenderer> ().sprite;
+			}*/
+			for (int i = 0; i <= nbCard - 1 ; i++) {
 				//Debug.Log ("i : "+((i+gun.curBullet)%gun.maxBullet)+"  lim : "+nbCard);
 				GameObject tmpCard = Instantiate (card,this.gameObject.transform);
 				tmpCard.transform.GetChild(0).GetComponentInChildren<Image> ().sprite = gun.bulletList [(i+gun.curBullet)%gun.maxBullet].GetComponent<SpriteRenderer> ().sprite;

@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114064164289551004}
   - component: {fileID: 50237791261589774}
   - component: {fileID: 70525796176103356}
-  - component: {fileID: 114859787820059158}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -41,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1247199715928642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7277706, y: -0.30294028, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,18 +120,6 @@ MonoBehaviour:
   angularSpeed: 2
   correctionOffset: 2
   objDebug: {fileID: 0}
---- !u!114 &114859787820059158
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1247199715928642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93054b36c40c7fd438a885d75ee9468c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 1
 --- !u!114 &114977251914860316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93054b36c40c7fd438a885d75ee9468c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
+  life: 2
 --- !u!212 &212271226574220406
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -178,9 +165,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: d690efb85319449acabbe36e817a7dbe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.44117647, b: 0.44117647, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
