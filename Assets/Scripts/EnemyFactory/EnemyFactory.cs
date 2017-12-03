@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour {
-	public List<Component> movementScriptList;
+	public List<GameObject> spawnPointList;
 	private bool workRequest;
 	private bool working;
 	public Camera mainCamera;
@@ -41,6 +41,8 @@ public class EnemyFactory : MonoBehaviour {
 		while (working){
 			bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)5));
 			instance = Instantiate (bundle) as GameObject;
+			instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
+
 			generate (instance);
 			yield return new WaitForSeconds (SpawnCycleTime);
 		}
@@ -54,7 +56,9 @@ public class EnemyFactory : MonoBehaviour {
 			//child.gameObject.AddComponent (movementScriptList[randomIndex]);
 
 			generatedEnemy = Instantiate (enemyPrefabs [Random.Range ((int)0, (int)enemyPrefabs.Count)]) as GameObject;
+			//Vector3 pos = generatedEnemy.transform.localPosition;
 			generatedEnemy.transform.SetParent (child);
+			generatedEnemy.transform.localPosition = new Vector3(0,0,0);
 			generatedEnemy.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);
 
 			/*if (Random.Range (0.0f, 1.0f) < 0.3f) {

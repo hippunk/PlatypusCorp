@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainLogic : MonoBehaviour {
-	public GameObject test;
 	public EnemyFactory factory;
 	public bool launch;
 	// Use this for initialization
@@ -14,7 +13,6 @@ public class MainLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (launch) {
-			Debug.Log ("Launched test");
 			launch = false;
 			factory.startWorking ();
 		}

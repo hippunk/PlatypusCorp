@@ -14,7 +14,7 @@ public class MoveToPlayer : MonoBehaviour {
 	private float correctionAngle = 0;
 	// Use this for initialization
 	void Start () {
-		objDebug = new GameObject ();
+		//objDebug = new GameObject ();
 		if (target == null)
 			target = GameObject.FindGameObjectWithTag ("Player");
 		else {
@@ -50,7 +50,7 @@ public class MoveToPlayer : MonoBehaviour {
 
 			Transform tmpTarget = target.transform;
 			tmpTarget.RotateAround (transform.position, Vector3.forward, correctionAngle);
-			objDebug.transform.position = tmpTarget.position;
+			//objDebug.transform.position = tmpTarget.position;
 			lookPos = tmpTarget.transform.position - transform.position;
 		}
 
