@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4147984298566774}
   - component: {fileID: 212110902697794054}
   - component: {fileID: 114922872801607330}
+  - component: {fileID: 114688332682229430}
+  - component: {fileID: 114520600601767924}
+  - component: {fileID: 114684724820735426}
   - component: {fileID: 50729100683576080}
   - component: {fileID: 70781033365052324}
   - component: {fileID: 114727261141177254}
@@ -79,6 +82,42 @@ CapsuleCollider2D:
   m_Offset: {x: -0.04, y: -0.19}
   m_Size: {x: 0.53, y: 0.89}
   m_Direction: 0
+--- !u!114 &114520600601767924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330202160263250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93054b36c40c7fd438a885d75ee9468c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1
+--- !u!114 &114684724820735426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330202160263250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf0583d1ccc4a747bc3191a06704085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poluteRate: 1
+  bullet: {fileID: 1849158464841444, guid: 22aee97200293194792976d1d7e48d46, type: 2}
+--- !u!114 &114688332682229430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330202160263250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b00f16071d65644b620a0efae69425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114727261141177254
 MonoBehaviour:
   m_ObjectHideFlags: 1
