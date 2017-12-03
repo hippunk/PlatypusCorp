@@ -11,6 +11,7 @@ public class EnemyFactory : MonoBehaviour {
 	public Camera mainCamera;
 	public float SpawnCycleTime;
 	private List<Object> enemyPrefabs;
+	private int difficulty;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class EnemyFactory : MonoBehaviour {
 		for (int i = 1; i <= 5; ++i) {
 			enemyPrefabs.Add (Resources.Load("Prefabs/EnemyTemplate/Enemy" + i));
 		}
+		difficulty = 1;
 	}
 	
 	// Update is called once per frame
@@ -40,7 +42,7 @@ public class EnemyFactory : MonoBehaviour {
 
 		working = true;
 		while (working){
-			bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)5));
+			bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)12));
 			instance = Instantiate (bundle) as GameObject;
 			instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 
