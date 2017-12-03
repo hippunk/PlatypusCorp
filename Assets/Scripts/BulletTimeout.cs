@@ -7,6 +7,7 @@ public class BulletTimeout : MonoBehaviour {
 
 	public float time = 100.0f;
 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +17,7 @@ public class BulletTimeout : MonoBehaviour {
 	void Update () {
 		time = Mathf.Max(0,time-Time.deltaTime);
 		if (time <= 0) {//Détruire la boulette
+			
 			Destroy(this.gameObject);
 		}
 	}

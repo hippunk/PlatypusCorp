@@ -15,7 +15,7 @@ public class CharaControl : MonoBehaviour {
 	void Update () {
 		float horizontal = Input.GetAxis ("Horizontal");
 		float vertical = Input.GetAxis ("Vertical");
-		Debug.Log ("hor : "+horizontal+" ver : "+vertical);
+		//Debug.Log ("hor : "+horizontal+" ver : "+vertical);
 
 
 		target.x = horizontal;
