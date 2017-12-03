@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFire : MonoBehaviour {
 
-
+	public HUDupdateBulletLeft hud;
 	public float fireRate = 0.2f;
 	public int maxBullet = 20;
 	public int curBullet = 0;

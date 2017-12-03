@@ -270,7 +270,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 280285120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 445, y: 426, z: 0}
+  m_LocalPosition: {x: 445, y: 427, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1112391110}
@@ -432,7 +432,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 398623414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 828.5, y: 466, z: 0}
+  m_LocalPosition: {x: 937, y: 467, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 825476108}
@@ -661,6 +661,7 @@ GameObject:
   - component: {fileID: 639664517}
   - component: {fileID: 639664519}
   - component: {fileID: 639664518}
+  - component: {fileID: 639664520}
   m_Layer: 5
   m_Name: BulletLeft
   m_TagString: Untagged
@@ -725,6 +726,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 639664516}
+--- !u!114 &639664520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 639664516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe963c993f88433d86505bdd9ac43e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 639664518}
+  field2: {fileID: 770201205}
+  gun: {fileID: 850169008}
+  left: 0
 --- !u!1 &770201203
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +765,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 770201203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -525, y: 416, z: 0}
+  m_LocalPosition: {x: -525, y: 417, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 639664517}
@@ -916,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb95ef5425076f4388894357dd01791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hud: {fileID: 0}
   fireRate: 0.2
   maxBullet: 20
   curBullet: 0
@@ -937,10 +954,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patterns:
-  - {fileID: 1247199715928642, guid: 60d2ab2e5908846f28c7f8b31650b364, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  value: 000000000000000000000000
+  - difficulty: 0
+    patterns: []
+  - difficulty: 0
+    patterns: []
+  - difficulty: 0
+    patterns: []
 --- !u!1 &958912851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,7 +1347,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495251633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 628.5, y: 416, z: 0}
+  m_LocalPosition: {x: 737, y: 417, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1013927662}
