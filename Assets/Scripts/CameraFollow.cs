@@ -9,6 +9,7 @@ public class CameraFollow : MonoBehaviour {
 	public float speed = 2.0f;
 	public float rangeX = 0.5f;
 	public float rangeY = 0.5f;
+	public int ihmSize = 170;
 
 	// Use this for initialization
 	void Start () {
@@ -39,11 +40,11 @@ public class CameraFollow : MonoBehaviour {
 		int In = Camera.main.pixelHeight - Xgap10;
 		int Is = Xgap10;
 		int Io = Ygap10;
-		int Ie = Camera.main.pixelWidth - Ygap10;
+		int Ie = Camera.main.pixelWidth - Ygap10-ihmSize;
 		int On = Camera.main.pixelHeight;
 		int Os = 0;
 		int Oo = 0;
-		int Oe = Camera.main.pixelWidth;
+		int Oe = Camera.main.pixelWidth-ihmSize;
 
 		Vector3 targetCamPos = Camera.main.WorldToScreenPoint (target.transform.position);
 
