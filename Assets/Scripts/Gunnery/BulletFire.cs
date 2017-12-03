@@ -36,12 +36,10 @@ public class BulletFire : MonoBehaviour {
 
 		if (Input.GetMouseButton(0) && rofTimer <= 0) {
 
-			Debug.Log ("Fire");
 			rofTimer = fireRate;
 			Instantiate (bulletList[curBullet],transform.position,transform.rotation);
-			Debug.Log("curBullet : "+curBullet);
-			curBullet = curBullet+1>=maxBullet?0:curBullet+1;
 
+			curBullet = curBullet+1>=maxBullet?0:curBullet+1;
 		}
 		
 	}
