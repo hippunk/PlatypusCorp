@@ -15,8 +15,8 @@ public class MainLogic : MonoBehaviour {
 	void Update () {
 		if (launch) {
 			Debug.Log ("Launched test");
-			factory.generate (test);
 			launch = false;
+			factory.startWorking ();
 		}
 	}
 }
