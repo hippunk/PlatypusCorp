@@ -38,7 +38,7 @@ public class BulletFire : MonoBehaviour {
 
 			Debug.Log ("Fire");
 			rofTimer = fireRate;
-			GameObject proj = Instantiate (bulletList[curBullet],transform.position,transform.rotation);
+			Instantiate (bulletList[curBullet],transform.position,transform.rotation);
 			Debug.Log("curBullet : "+curBullet);
 			curBullet = curBullet+1>=maxBullet?0:curBullet+1;
 

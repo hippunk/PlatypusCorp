@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4147984298566774}
   - component: {fileID: 212110902697794054}
   - component: {fileID: 114922872801607330}
+  - component: {fileID: 50729100683576080}
+  - component: {fileID: 70781033365052324}
+  - component: {fileID: 114727261141177254}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -35,12 +38,59 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1330202160263250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.52305865, y: -1.9464186, z: 0.32395458}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50729100683576080
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330202160263250}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &70781033365052324
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330202160263250}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04, y: -0.19}
+  m_Size: {x: 0.53, y: 0.89}
+  m_Direction: 0
+--- !u!114 &114727261141177254
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330202160263250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93054b36c40c7fd438a885d75ee9468c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 1
 --- !u!114 &114922872801607330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationSpeed: 1
   angularSpeed: 0
+  correctionOffset: 2
+  objDebug: {fileID: 0}
 --- !u!212 &212110902697794054
 SpriteRenderer:
   m_ObjectHideFlags: 1
