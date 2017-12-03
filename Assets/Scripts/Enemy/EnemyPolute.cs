@@ -14,7 +14,7 @@ public class EnemyPolute : MonoBehaviour {
 		if (target == null) {
 			
 			target = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<BulletFire> ();
-			Debug.Log ("loaded : " + target);
+			//Debug.Log ("loaded : " + target);
 		}
 		else {
 			Debug.Log ("pb chargement Player");
