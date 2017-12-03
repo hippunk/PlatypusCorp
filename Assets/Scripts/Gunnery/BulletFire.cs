@@ -45,4 +45,14 @@ public class BulletFire : MonoBehaviour {
 		}
 		
 	}
+
+	public int GetRandomUninfectedBulletID(){
+		List<int> uninfectedBullets = new List<int>();
+		for(int i = 0;i<bulletList.Length;i++) {
+			if (bulletList[i] == regularBullet) {
+				uninfectedBullets.Add (i);
+			}
+		}
+		return uninfectedBullets[Random.Range(0,uninfectedBullets.Count)];	
+	}
 }
