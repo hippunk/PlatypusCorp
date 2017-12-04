@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004009222, g: 0.00021876759, b: 0.000000052460166,
+  m_IndirectSpecularColor: {r: 0.0040092263, g: 0.0002187678, b: 0.000000052460166,
     a: 1}
 --- !u!157 &3
 LightmapSettings:
@@ -213,12 +213,12 @@ Prefab:
     - target: {fileID: 224729544725754384, guid: 005504ed4f883ab45a30650264750073,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 543
+      value: 510
       objectReference: {fileID: 0}
     - target: {fileID: 224729544725754384, guid: 005504ed4f883ab45a30650264750073,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 335
+      value: 301
       objectReference: {fileID: 0}
     - target: {fileID: 224729544725754384, guid: 005504ed4f883ab45a30650264750073,
         type: 2}
@@ -627,7 +627,7 @@ MonoBehaviour:
   hud: {fileID: 1791992063}
   score: {fileID: 1195148684}
   fireRate: 0.2
-  maxBullet: 20
+  maxBullet: 10
   curBullet: 0
   regularBullet: {fileID: 1849158464841444, guid: a12117ccf9f45e140b73fd06a5aada89,
     type: 2}
@@ -849,7 +849,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1aaec2ea862b39641b96054f15582b8b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1061,7 +1061,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1951313456}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b40cc1bf206cd42d18b9764757686cc4, type: 3}
@@ -1265,7 +1265,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1198378969
+  randomSeed: 880157123
   InitialModule:
     serializedVersion: 3
     enabled: 1
