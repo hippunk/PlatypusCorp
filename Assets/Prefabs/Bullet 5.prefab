@@ -25,9 +25,10 @@ GameObject:
   - component: {fileID: 82021486808470720}
   - component: {fileID: 114377184275734916}
   - component: {fileID: 114250074880076128}
+  - component: {fileID: 58331483895447358}
   m_Layer: 0
   m_Name: Bullet 5
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +46,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58331483895447358
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1963283434197980}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!82 &82021486808470720
 AudioSource:
   m_ObjectHideFlags: 1
@@ -148,6 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6938f99c462044156bea42454fa51e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag: Orange
+  hasTouched: 0
+  damage: 1
 --- !u!114 &114377184275734916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireSound: {fileID: 82021486808470720}
+  bullet: {fileID: 114250074880076128}
 --- !u!114 &114799268928314234
 MonoBehaviour:
   m_ObjectHideFlags: 1

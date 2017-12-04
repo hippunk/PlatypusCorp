@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PollutedBullet : MonoBehaviour {
 	public AudioSource fireSound;
+	public Bullet bullet;
 	// Use this for initialization
 	void Start () {
 		fireSound.Play ();
@@ -13,4 +14,10 @@ public class PollutedBullet : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void applyBulletEffect(GameObject target){
+	
+		bullet.onTouch (target);
+	}
+
 }

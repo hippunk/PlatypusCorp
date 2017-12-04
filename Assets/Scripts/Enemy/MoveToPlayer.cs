@@ -7,6 +7,7 @@ public class MoveToPlayer : MonoBehaviour {
 	public float translationSpeed = 2.0f;
 	public float angularSpeed = 2.0f;
 	public float correctionOffset = 2.0f;
+	private bool upgraded = false;
 
 	public GameObject objDebug;
 
@@ -61,6 +62,13 @@ public class MoveToPlayer : MonoBehaviour {
 		transform.Translate (Vector3.up*Time.deltaTime*translationSpeed);
 	}
 		
+	public void upgradeSpeed(){
+		if (upgraded == false) {
+			upgraded = true;
+			transform.localScale *= 0.75f;
+			translationSpeed += 1.0f;
+		}
+	}
 
 	/*void OnCollisionEnter(Collision collision)
 	{

@@ -21,8 +21,22 @@ public class EnemyCollide : MonoBehaviour {
 		//Collide with bullet
 		if (collision.gameObject.tag == "Bullet" && !invulnerable) {
 			Bullet bullet = collision.gameObject.GetComponent<Bullet> ();
-			if(GetComponent<EnemyLife>()!=null)GetComponent<EnemyLife>().life -= bullet.damage;
-			Destroy (collision.gameObject);
+
+			if (bullet.hasTouched == false) {
+				bullet.hasTouched = true;
+				EnemyLife enemyLife = GetComponent<EnemyLife> ();
+				Debug.Log ("bullet touch");
+
+				PollutedBullet tmpbullet = collision.gameObject.GetComponent<PollutedBullet> ();
+				if (tmpbullet != null)
+					tmpbullet.applyBulletEffect (this.gameObject);
+				else if (enemyLife) {
+					enemyLife.damageLife ();
+
+				}
+				Destroy (collision.gameObject);
+			}
+
 		}
 
 		//Polute and link when collide

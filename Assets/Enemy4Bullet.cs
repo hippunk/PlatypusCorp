@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy4Bullet : MonoBehaviour {
+public class Enemy4Bullet : Bullet {
 
-	// Use this for initialization
-	void Start () {
-		
+	public Enemy4Bullet(){
+		this.tag = "Purple";
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+	public override void onTouch(GameObject touched){
+		Debug.Log ("Enemy4Bullet touch");
+		if (touched.GetComponent<EnemyPolute> ().tag == this.tag) {
+			touched.GetComponent<EnemyLife> ().damageLife ();
+		}
+
+	} 
 }
