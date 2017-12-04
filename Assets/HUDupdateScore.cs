@@ -8,7 +8,7 @@ public class HUDupdateScore : MonoBehaviour {
 	public Text field2;
 	private int score;
 	private float timer;
-	private bool end;
+	public bool end;
 	// Use this for initialization
 	void Start () {
 		score = 0;

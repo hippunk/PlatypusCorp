@@ -16,6 +16,16 @@ public class SpawnPatterns : MonoBehaviour {
 
 	//public int patternsNumber;
 	public List<Pattern> patterns = new List<Pattern>();
+	public int maxDifficulty;
+
+	public int getMaxDifficulty(){
+		int max = 0;
+		foreach(Pattern pattern in patterns){
+			if (max < pattern.difficulty)
+				max = pattern.difficulty;
+		}
+		return max;
+	}
 
 	//select random difficulty with max difficulty
 	Pattern getRandomMaxDifficultyPattern(int max){
@@ -39,5 +49,15 @@ public class SpawnPatterns : MonoBehaviour {
 		}
 
 		return tmpList;
+	}
+
+	public int getDifficultyOfPattern(GameObject go){
+		foreach (Pattern pattern in patterns) {
+			foreach (GameObject tmp in pattern.patterns) {
+				if (tmp == go)
+					return pattern.difficulty;
+			}	
+		}
+		return 0;
 	}
 }

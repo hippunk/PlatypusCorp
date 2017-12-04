@@ -8,7 +8,7 @@ public class AlignWithPlayer : MonoBehaviour {
 	public Vector3 dest = Vector3.zero;
 	private GameObject player;
 	public Vector3 position;
-	private float test = 0.3f; 
+	private float test = 1.0f; 
 
 	// Use this for initialization
 	void Start () {
@@ -17,9 +17,9 @@ public class AlignWithPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update(){
-		position = new Vector3(dest.x-player.transform.position.x,dest.y-player.transform.position.y);
-		//position.Normalize ();
-		transform.position = Vector3.Lerp(player.transform.position,dest,test);//player.transform.position+position * range;
-		test-=0.05f*Time.deltaTime;
+		position = new Vector3(dest.x-player.transform.position.x,dest.y-player.transform.position.y,-3);
+		position.Normalize ();
+		transform.position = player.transform.position+position * range*test;
+		test -= Time.deltaTime*0.05f;
 	}
 }

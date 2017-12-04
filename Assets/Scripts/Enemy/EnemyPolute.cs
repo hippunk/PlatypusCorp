@@ -24,6 +24,7 @@ public class EnemyPolute : MonoBehaviour {
 	public void polute(){
 		target.bulletList[target.GetRandomUninfectedBulletID ()] = bullet;
 		target.reload = true;
-		//target.hud.decreaseBulletCount ();
+		target.iPol++;
+		target.hud.decreaseBulletCount ();
 	}
 }
