@@ -13,7 +13,11 @@ public class BulletFire : MonoBehaviour {
 	public GameObject dummyBullet;
 	public bool reload = true;
 	public int iPol = 0;
-
+	public GameObject gameover;
+	public CameraFollow cameraFollow;
+	public MainLogic mainLogic;
+	public CharaControl charaControl;
+	public CharaLookAtMouse charLook;
 	private float rofTimer;
 	public GameObject[] bulletList;
 
@@ -46,9 +50,27 @@ public class BulletFire : MonoBehaviour {
 		}
 	
 		if (iPol >= maxBullet) {
+			
 			Debug.Log ("GameOver");
-			score.stopScore ();
+			StartCoroutine(GameOver());
+
 		}
+	}
+
+	IEnumerator GameOver()
+	{
+		score.stopScore ();
+
+		//cameraFollow.enabled = false;
+		mainLogic.launch = false;
+		charaControl.enabled = false;
+		this.enabled = false;
+		charLook.enabled = false;
+		yield return new WaitForSeconds (3);
+
+		gameover.SetActive (true);
+
+
 	}
 
 	public int GetRandomUninfectedBulletID(){

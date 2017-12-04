@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HUDupdateScore : MonoBehaviour {
 	public Text field;
 	public Text field2;
-	private int score;
+	public int score;
 	private float timer;
 	public bool end;
 	// Use this for initialization
