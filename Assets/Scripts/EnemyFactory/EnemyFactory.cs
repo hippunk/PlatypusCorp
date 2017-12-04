@@ -64,17 +64,13 @@ public class EnemyFactory : MonoBehaviour {
 			foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
 				Debug.Log ("\t pattern : "+go.name);
 				instance = Instantiate (go) as GameObject;
-<<<<<<< HEAD
-				instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
-				GameObject warn = Instantiate (warning);
-				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
-=======
 
 				Vector3 randomPos = getRandomPosFromFar (20);
 				//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 				instance.transform.position = randomPos;
+				GameObject warn = Instantiate (warning);
+				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
 
->>>>>>> origin/master
 				generate (instance);
 				Destroy (instance);
 			}
