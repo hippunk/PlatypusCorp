@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour {
 	
-	public List<GameObject> spawnPointList;
+	//public List<GameObject> spawnPointList;
 	public GameObject _dynamics_;
 	private bool workRequest;
 	private bool working;
@@ -64,9 +64,17 @@ public class EnemyFactory : MonoBehaviour {
 			foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
 				Debug.Log ("\t pattern : "+go.name);
 				instance = Instantiate (go) as GameObject;
+<<<<<<< HEAD
 				instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 				GameObject warn = Instantiate (warning);
 				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
+=======
+
+				Vector3 randomPos = getRandomPosFromFar (20);
+				//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
+				instance.transform.position = randomPos;
+
+>>>>>>> origin/master
 				generate (instance);
 				Destroy (instance);
 			}
@@ -84,6 +92,11 @@ public class EnemyFactory : MonoBehaviour {
 			difficulty += 1;
 			yield return new WaitForSeconds (SpawnCycleTime);
 		}
+	}
+
+	public Vector3 getRandomPosFromFar(int distance){
+	
+		return new Vector3 (Random.Range (-1.0f, 1.0f) * distance, Random.Range (-1.0f, 1.0f) * distance, 0) + mainCamera.transform.position;
 	}
 
 	public void generate(GameObject pack){

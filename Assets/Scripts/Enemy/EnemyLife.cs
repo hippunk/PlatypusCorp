@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyLife : MonoBehaviour {
 
 	public int life = 1;
+	public int score = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +14,10 @@ public class EnemyLife : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (life <= 0)
+		if (life <= 0) {
+			GameObject.FindGameObjectWithTag ("Score").GetComponent<HUDupdateScore> ().addToScore (score);
 			Destroy (this.gameObject);
+		}
 	}
 
 

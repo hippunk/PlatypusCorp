@@ -432,7 +432,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 398623414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 937, y: 467, z: 0}
+  m_LocalPosition: {x: 830, y: 467, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 825476108}
@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 1013927664}
   - component: {fileID: 1013927663}
   m_Layer: 5
-  m_Name: BulletLeft
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1368,9 +1368,10 @@ GameObject:
   - component: {fileID: 1495251634}
   - component: {fileID: 1495251636}
   - component: {fileID: 1495251635}
+  - component: {fileID: 1495251637}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1382,7 +1383,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495251633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 737, y: 417, z: 0}
+  m_LocalPosition: {x: 630, y: 417, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1013927662}
@@ -1435,6 +1436,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1495251633}
+--- !u!114 &1495251637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495251633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d1f0662238242ca853aed5a8f243d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 1495251635}
+  field2: {fileID: 1013927663}
 --- !u!1 &1910082769
 GameObject:
   m_ObjectHideFlags: 0
