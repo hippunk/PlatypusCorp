@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  score: 100
+  score: 1000
 --- !u!114 &114684724820735426
 MonoBehaviour:
   m_ObjectHideFlags: 1

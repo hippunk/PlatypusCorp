@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poluteRate: 1
-  bullet: {fileID: 1849158464841444, guid: 22aee97200293194792976d1d7e48d46, type: 2}
+  bullet: {fileID: 1710997702465506, guid: c5e05bc0681eb4b37bfc4e771f8b37f3, type: 2}
 --- !u!114 &114246807868378824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 2
-  score: 100
+  score: 1000
 --- !u!212 &212271226574220406
 SpriteRenderer:
   m_ObjectHideFlags: 1

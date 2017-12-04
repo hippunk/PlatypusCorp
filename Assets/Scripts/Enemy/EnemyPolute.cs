@@ -22,9 +22,14 @@ public class EnemyPolute : MonoBehaviour {
 	}
 	
 	public void polute(){
-		target.bulletList[target.GetRandomUninfectedBulletID ()] = bullet;
-		target.reload = true;
-		target.iPol++;
-		target.hud.decreaseBulletCount ();
+		int id = target.GetRandomUninfectedBulletID ();
+		if (id != -1) {
+			target.bulletList [id] = bullet;
+			target.reload = true;
+			target.iPol++;
+			Debug.Log ("polute");
+			target.hud.decreaseBulletCount ();
+	
+		}
 	}
 }

@@ -11,7 +11,7 @@ public class HUDupdateBulletLeft : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		left = gun.maxBullet;
-
+		Debug.Log ("decerse "+gun.maxBullet);
 		field.text = gun.maxBullet + "/" + gun.maxBullet;
 		field2.text = gun.maxBullet + "/" + gun.maxBullet;
 	}
@@ -22,9 +22,16 @@ public class HUDupdateBulletLeft : MonoBehaviour {
 	}
 
 	public void decreaseBulletCount(){
-		if (left >= 0)
+
+		if (left > 0) {
+			Debug.Log ("decerse "+left);
 			left -= 1;
+			Debug.Log ("decerse "+left);
+		}
+
+		Debug.Log ("decerse "+left);
 		field.text = left + "/" + gun.maxBullet;
+		Debug.Log (field.text);
 		field2.text = left + "/" + gun.maxBullet;
 	}
 }

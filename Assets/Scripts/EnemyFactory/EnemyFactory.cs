@@ -49,20 +49,21 @@ public class EnemyFactory : MonoBehaviour {
 
 
 	IEnumerator makeEnemies(){
-		Object bundle;
+		//Object bundle;
 		GameObject instance;
 
 		working = true;
 		while (working){
+			yield return new WaitForSeconds (SpawnCycleTime);
 			//Set dificulty computation here, load spawnpattern class rather than resources.load
 			//Make a difficulty pool and a list collection ordered by difficulties
 			//Then roll dices to choose and that's ok !
 
 			//TODO HERE !
 			//Populate difficulty pool
-			Debug.Log("Difficulty : "+difficulty);
+			//Debug.Log("Difficulty : "+difficulty);
 			foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
-				Debug.Log ("\t pattern : "+go.name);
+				//Debug.Log ("\t pattern : "+go.name);
 				instance = Instantiate (go) as GameObject;
 
 				Vector3 randomPos = getRandomPosFromFar (20);
@@ -82,7 +83,6 @@ public class EnemyFactory : MonoBehaviour {
 			//bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)12));
 
 			difficulty += 1;
-			yield return new WaitForSeconds (SpawnCycleTime);
 		}
 	}
 

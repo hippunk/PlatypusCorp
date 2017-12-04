@@ -58,7 +58,9 @@ public class BulletFire : MonoBehaviour {
 				uninfectedBullets.Add (i);
 			}
 		}
-
+		if (uninfectedBullets.Count == 0) {
+			return -1;
+		}
 
 		return uninfectedBullets[Random.Range(0,uninfectedBullets.Count)];	
 	}
