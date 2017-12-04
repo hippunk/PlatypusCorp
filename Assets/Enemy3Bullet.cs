@@ -5,14 +5,16 @@ using UnityEngine;
 public class Enemy3Bullet : Bullet {
 
 	public Enemy3Bullet(){
-		this.tag = "Green";
+		setupTag ("Green");
 	}
 
 	public override void onTouch(GameObject touched){
 		//touched.GetComponent<MoveToPlayer> ().upgradeSpeed ();
 		Debug.Log ("Enemy3Bullet touch");
-		if (touched.GetComponent<EnemyPolute> ().tag == this.tag) {
+		if (touched.GetComponent<EnemyPolute> ().colorTag == recoverTag()) {
 			touched.GetComponent<EnemyLife> ().damageLife ();
+			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<BulletFire> ()
+				.reloadCleanBullet (recoverTag ());
 		}
 
 	} 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyPolute : MonoBehaviour {
-	public string tag;
+	public string colorTag;
 	public float poluteRate = 1.0f;
 	public GameObject bullet;
 

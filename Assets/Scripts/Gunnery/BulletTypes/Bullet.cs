@@ -17,6 +17,14 @@ abstract public class Bullet : MonoBehaviour {
 		
 	}
 
+	protected void setupTag(string value){
+		tag = value;
+	}
+
+	public string recoverTag(){
+		return tag;
+	}
+
 	public virtual void onTouch (GameObject touched){
 	}
 

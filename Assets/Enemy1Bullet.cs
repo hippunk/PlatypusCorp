@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy1Bullet : Bullet {
 
 	public Enemy1Bullet(){
-		this.tag = "Blue";
+		setupTag("Blue");
 	}
 
 	public override void onTouch(GameObject touched){
@@ -15,8 +15,11 @@ public class Enemy1Bullet : Bullet {
 		//blueField.transform.position = touched.transform.position;
 
 		Debug.Log ("Enemy1Bullet touch");
-		if (touched.GetComponent<EnemyPolute> ().tag == this.tag) {
+		if (touched.GetComponent<EnemyPolute> ().colorTag == recoverTag()) {
 			touched.GetComponent<EnemyLife> ().damageLife ();
+			GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<BulletFire> ()
+				.reloadCleanBullet (recoverTag ());
+
 		}
 
 	}

@@ -102,6 +102,8 @@ public class EnemyFactory : MonoBehaviour {
 			//Vector3 pos = generatedEnemy.transform.localPosition;
 			generatedEnemy.transform.SetParent (_dynamics_.transform);
 			generatedEnemy.transform.localPosition = child.position;
+			generatedEnemy.transform.localPosition = new Vector3(generatedEnemy.transform.position.x,
+				generatedEnemy.transform.position.x, -5.0f);
 			generatedEnemy.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);
 
 			/*if (Random.Range (0.0f, 1.0f) < 0.3f) {

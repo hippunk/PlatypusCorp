@@ -20,6 +20,13 @@ public class HUDupdateBulletLeft : MonoBehaviour {
 		
 	}
 
+	public void recoverBullet(){
+		if (left < gun.maxBullet)
+			left += 1;
+		field.text = left + "/" + gun.maxBullet;
+		field2.text = left + "/" + gun.maxBullet;
+	}
+
 	public void decreaseBulletCount(){
 
 		if (left > 0) {

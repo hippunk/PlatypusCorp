@@ -39,8 +39,9 @@ public class BulletFire : MonoBehaviour {
 		if (Input.GetMouseButton(0) && rofTimer <= 0) {
 			reload = true;
 			rofTimer = fireRate;
-			Instantiate (bulletList[curBullet],transform.position,transform.rotation);
-
+			GameObject bullet = Instantiate (bulletList[curBullet],transform.position,transform.rotation) as GameObject;
+			//bullet.regBullet = regularBullet;
+			
 			curBullet = curBullet+1>=maxBullet?0:curBullet+1;
 		}
 	
@@ -63,5 +64,20 @@ public class BulletFire : MonoBehaviour {
 		}
 
 		return uninfectedBullets[Random.Range(0,uninfectedBullets.Count)];	
+	}
+
+	public void reloadCleanBullet(string colorType){
+		int i = bulletList.Length;
+
+		Debug.Log ("reloading bullet");
+		while (--i >= 0){
+			if (bulletList [i].GetComponent<Bullet>().recoverTag() == colorType) {
+				bulletList [i] = regularBullet;
+				hud.recoverBullet ();
+				reload = false;
+				return;
+			}
+		}
+		Debug.Log ("Failed To reload");
 	}
 }
