@@ -43,8 +43,11 @@ public class EnemyCollide : MonoBehaviour {
 		if (collision.gameObject.tag == "Player" && !invulnerable) {
 			invulnerable = true;
 			//GetComponent<MoveToPlayer> ().angularSpeed += 1.0f;
+			Color grey = new Color();
+			grey = Color.gray;
+			grey.a = 0.25f;
 			foreach (SpriteRenderer elem in gameObject.GetComponentsInChildren<SpriteRenderer> ()){
-				elem.color = Color.gray;
+				elem.color = grey;
 			}
 			EnemyPolute polute = GetComponent<EnemyPolute> ();
 			if (polute != null) {
