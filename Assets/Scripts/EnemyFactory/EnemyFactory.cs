@@ -69,6 +69,7 @@ public class EnemyFactory : MonoBehaviour {
 				//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 				instance.transform.position = randomPos;
 				GameObject warn = Instantiate (warning);
+				warn.GetComponent<SpriteRenderer> ().color = new Color (1.0f,1-(((float)spPat.getDifficultyOfPattern(go))/((float)spPat.getMaxDifficulty())),0.0f);
 				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
 
 				generate (instance);
@@ -79,11 +80,6 @@ public class EnemyFactory : MonoBehaviour {
 
 
 			//bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)12));
-
-
-
-
-
 
 			difficulty += 1;
 			yield return new WaitForSeconds (SpawnCycleTime);
