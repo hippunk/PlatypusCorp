@@ -11,6 +11,7 @@ public class EnemyFactory : MonoBehaviour {
 	private bool working;
 	public Camera mainCamera;
 	public float SpawnCycleTime;
+	public GameObject warning;
 
 	private SpawnPatterns spPat;
 	private List<Object> enemyPrefabs;
@@ -64,6 +65,8 @@ public class EnemyFactory : MonoBehaviour {
 				Debug.Log ("\t pattern : "+go.name);
 				instance = Instantiate (go) as GameObject;
 				instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
+				GameObject warn = Instantiate (warning);
+				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
 				generate (instance);
 				Destroy (instance);
 			}
