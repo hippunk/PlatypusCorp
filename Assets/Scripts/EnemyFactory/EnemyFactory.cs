@@ -74,7 +74,7 @@ public class EnemyFactory : MonoBehaviour {
 				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
 
 				generate (instance);
-				Destroy (instance);
+				//Destroy (instance);
 			}
 
 			//
@@ -87,24 +87,39 @@ public class EnemyFactory : MonoBehaviour {
 	}
 
 	public Vector3 getRandomPosFromFar(int distance){
-	
-		return new Vector3 (Random.Range (-1.0f, 1.0f) * distance, Random.Range (-1.0f, 1.0f) * distance, 0) + mainCamera.transform.position;
+		//Vector3 normVect = new Vector3(Mathf.Cos(Random.Range(0.0f, 2 * Mathf.PI)), Mathf.Sin(Random.Range(0.0f, 2 * Mathf.PI)) , 0);
+		Vector3 normVect = (new Vector3(Random.Range(-100.0f, 100.0f), Random.Range(-100.0f, 100.0f), 0.0f)).normalized;
+		//Debug.Log ("Normalized vect: " + normVect);
+		return (normVect * distance) + mainCamera.transform.position;
+		//return ((new Vector3 (Mathf.Ceil(Random.Range (-1.0f, 1.0f)), Mathf.Ceil(Random.Range (-1.0f, 1.0f)), 0)) + mainCamera.transform.position) * distance;
 	}
 
 	public void generate(GameObject pack){
 		GameObject generatedEnemy;
 		//pack.transform.position = mainCamera.
-		foreach (Transform child in pack.transform) {
+		Transform child;
+		for (int i = 0; i < pack.transform.childCount; ++i){
+			child = pack.transform.GetChild (i);
+			generatedEnemy = Instantiate (enemyPrefabs [Random.Range ((int)0, (int)enemyPrefabs.Count)]) as GameObject;
+			//Vector3 pos = generatedEnemy.transform.localPosition;
+			generatedEnemy.transform.SetParent (_dynamics_.transform);
+			generatedEnemy.transform.position = child.position;
+			generatedEnemy.transform.position = new Vector3(generatedEnemy.transform.position.x,
+				generatedEnemy.transform.position.y, -5.0f);
+			
+
+		}
+		/*foreach (Transform child in pack.transform) {
 			//randomIndex = Random.Range ((int)0, pack.transform.childCount);
 			//child.gameObject.AddComponent (movementScriptList[randomIndex]);
 
 			generatedEnemy = Instantiate (enemyPrefabs [Random.Range ((int)0, (int)enemyPrefabs.Count)]) as GameObject;
 			//Vector3 pos = generatedEnemy.transform.localPosition;
 			generatedEnemy.transform.SetParent (_dynamics_.transform);
-			generatedEnemy.transform.localPosition = child.position;
-			generatedEnemy.transform.localPosition = new Vector3(generatedEnemy.transform.position.x,
+			generatedEnemy.transform.position = child.position;
+			generatedEnemy.transform.position = new Vector3(generatedEnemy.transform.position.x,
 				generatedEnemy.transform.position.x, -5.0f);
-			generatedEnemy.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);
+			//generatedEnemy.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);
 
 			/*if (Random.Range (0.0f, 1.0f) < 0.3f) {
 				child.GetComponent<MoveToPlayer>().angularSpeed = 0;
@@ -114,6 +129,6 @@ public class EnemyFactory : MonoBehaviour {
 				child.GetComponent<MoveToPlayer>().angularSpeed += Random.Range(-0.5f, 0.5f);
 			child.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);*/
 
-		}
+		//}
 	}
 }
