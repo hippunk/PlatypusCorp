@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -433,7 +433,7 @@ RectTransform:
   m_GameObject: {fileID: 398623414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.136, y: 2.188, z: -5.4}
-  m_LocalScale: {x: 0.024449877, y: 0.024449877, z: 0.024449877}
+  m_LocalScale: {x: 0.010706638, y: 0.010706638, z: 0.010706638}
   m_Children:
   - {fileID: 825476108}
   m_Father: {fileID: 0}
@@ -540,12 +540,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5b40cb6f999fe471c83c6bab64f77c98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e3732a95fb3a746158bb0cb5e74acce6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.82, y: 1.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -675,7 +675,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615856320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -525.50006, y: 0, z: 0}
+  m_LocalPosition: {x: -937.00006, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 770201204}
@@ -895,7 +895,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 825476107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 204.5, z: 0}
+  m_LocalPosition: {x: 0, y: 467, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 280285121}
@@ -1041,11 +1041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efd59230749e4bcf98e9a87a99d73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointList:
-  - {fileID: 365658997}
-  - {fileID: 128914950}
-  - {fileID: 1082307746}
-  - {fileID: 1037759708}
   _dynamics_: {fileID: 575658290}
   mainCamera: {fileID: 1951313459}
   SpawnCycleTime: 0
@@ -1578,7 +1573,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1912051576}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 525.50006, y: 0, z: 0}
+  m_LocalPosition: {x: 937.00006, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1495251634}

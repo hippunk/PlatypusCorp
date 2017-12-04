@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  score: 100
 --- !u!114 &114684724820735426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,12 +167,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 2fdda14484e164377998aefe1d2d5d89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 37552d075ec3247649d9ea3f6bb65f5e, type: 3}
   m_Color: {r: 0.4705882, g: 0.7590264, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.61, y: 1.24}
+  m_Size: {x: 1.17, y: 1.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

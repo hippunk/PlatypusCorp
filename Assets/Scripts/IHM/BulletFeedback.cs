@@ -32,7 +32,15 @@ public class BulletFeedback : MonoBehaviour {
 			for (int i = 0; i <= nbCard - 1 ; i++) {
 				//Debug.Log ("i : "+((i+gun.curBullet)%gun.maxBullet)+"  lim : "+nbCard);
 				GameObject tmpCard = Instantiate (card,this.gameObject.transform);
-				tmpCard.transform.GetChild(0).GetComponentInChildren<Image> ().sprite = gun.bulletList [(i+gun.curBullet)%gun.maxBullet].GetComponent<SpriteRenderer> ().sprite;
+
+				/////TEST
+				SpriteRenderer tmpSprite = gun.bulletList [(i+gun.curBullet)%gun.maxBullet].GetComponent<SpriteRenderer> ();
+				Image tmpChildImg = tmpCard.transform.GetChild (0).GetComponentInChildren<Image> ();
+
+				tmpChildImg.sprite = tmpSprite.sprite;
+				tmpChildImg.color = tmpSprite.color;
+				/////
+				//tmpCard.transform.GetChild(0).GetComponentInChildren<Image> ().sprite = gun.bulletList [(i+gun.curBullet)%gun.maxBullet].GetComponent<SpriteRenderer> ().sprite;
 			}
 
 			gun.reload = false;
