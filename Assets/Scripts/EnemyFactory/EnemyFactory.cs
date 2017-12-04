@@ -11,6 +11,7 @@ public class EnemyFactory : MonoBehaviour {
 	private bool working;
 	public Camera mainCamera;
 	public float SpawnCycleTime;
+	public GameObject warning;
 
 	private SpawnPatterns spPat;
 	private List<Object> enemyPrefabs;
@@ -67,6 +68,8 @@ public class EnemyFactory : MonoBehaviour {
 				Vector3 randomPos = getRandomPosFromFar (20);
 				//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 				instance.transform.position = randomPos;
+				GameObject warn = Instantiate (warning);
+				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
 
 				generate (instance);
 				Destroy (instance);
