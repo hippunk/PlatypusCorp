@@ -74,7 +74,7 @@ public class EnemyFactory : MonoBehaviour {
 				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
 
 				generate (instance);
-				//Destroy (instance);
+				Destroy (instance);
 			}
 
 			//
