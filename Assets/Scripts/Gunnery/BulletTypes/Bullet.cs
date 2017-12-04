@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class Bullet : MonoBehaviour {
-	public string tag = "";
+	public string tag;
 	public bool hasTouched = false;
 	public int damage = 1;
 

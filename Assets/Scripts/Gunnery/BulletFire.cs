@@ -39,7 +39,7 @@ public class BulletFire : MonoBehaviour {
 		if (Input.GetMouseButton(0) && rofTimer <= 0) {
 			reload = true;
 			rofTimer = fireRate;
-			GameObject bullet = Instantiate (bulletList[curBullet],transform.position,transform.rotation) as GameObject;
+			Instantiate (bulletList[curBullet],transform.position,transform.rotation);
 			//bullet.regBullet = regularBullet;
 			
 			curBullet = curBullet+1>=maxBullet?0:curBullet+1;
