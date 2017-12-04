@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf0583d1ccc4a747bc3191a06704085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: Purple
+  colorTag: Purple
   poluteRate: 1
   bullet: {fileID: 1960530656708000, guid: 8d408f998c759415ba5dd4447f270b10, type: 2}
 --- !u!114 &114327182667910150

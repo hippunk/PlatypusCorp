@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf0583d1ccc4a747bc3191a06704085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: Red
+  colorTag: Red
   poluteRate: 1
   bullet: {fileID: 1710997702465506, guid: c5e05bc0681eb4b37bfc4e771f8b37f3, type: 2}
 --- !u!114 &114246807868378824
