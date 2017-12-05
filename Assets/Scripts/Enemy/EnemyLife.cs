@@ -8,6 +8,7 @@ public class EnemyLife : MonoBehaviour {
 	public int score = 100;
 	private bool upgraded;
 	public GameObject spriteBundle;
+	public AudioSource audio;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,7 @@ public class EnemyLife : MonoBehaviour {
 		if (spriteBundle.activeInHierarchy == false)
 			spriteBundle.SetActive (true);
 		if (life <= 0) {
+			//audio.Play();
 			GameObject.FindGameObjectWithTag ("Score").GetComponent<HUDupdateScore> ().addToScore (score);
 			Destroy (this.gameObject);
 
@@ -28,6 +30,9 @@ public class EnemyLife : MonoBehaviour {
 
 	public void damageLife(){
 		life -= 1;
+		if (life <= 0) {
+			audio.Play ();
+		}
 		spriteBundle.SetActive (false);
 	}
 
