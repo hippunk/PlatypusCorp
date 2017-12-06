@@ -13,11 +13,11 @@ public class StartOptions : MonoBehaviour {
 	public bool changeMusicOnStart;										//Choose whether to continue playing menu music or start a new music clip
 
 
-	[HideInInspector] public bool inMainMenu = true;					//If true, pause button disabled in main menu (Cancel in input manager, default escape key)
-	[HideInInspector] public Animator animColorFade; 					//Reference to animator which will fade to and from black when starting game.
-	[HideInInspector] public Animator animMenuAlpha;					//Reference to animator that will fade out alpha of MenuPanel canvas group
+	/*[HideInInspector]*/ public bool inMainMenu = true;					//If true, pause button disabled in main menu (Cancel in input manager, default escape key)
+	/*[HideInInspector]*/ public Animator animColorFade; 					//Reference to animator which will fade to and from black when starting game.
+	/*[HideInInspector]*/ public Animator animMenuAlpha;					//Reference to animator that will fade out alpha of MenuPanel canvas group
 	 public AnimationClip fadeColorAnimationClip;		//Animation clip fading to color (black default) when changing scenes
-	[HideInInspector] public AnimationClip fadeAlphaAnimationClip;		//Animation clip fading out UI elements alpha
+	/*[HideInInspector]*/ public AnimationClip fadeAlphaAnimationClip;		//Animation clip fading out UI elements alpha
 
 
 	private PlayMusic playMusic;										//Reference to PlayMusic script
