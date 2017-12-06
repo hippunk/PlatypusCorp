@@ -12,6 +12,9 @@ public class EnemyFactory : MonoBehaviour {
 	public Camera mainCamera;
 	public float SpawnCycleTime;
 	public GameObject warning;
+	public int startDifficulty = 3;
+	public int maxDifficulty = 25;
+
 
 	private SpawnPatterns spPat;
 	private List<Object> enemyPrefabs;
@@ -28,7 +31,7 @@ public class EnemyFactory : MonoBehaviour {
 		for (int i = 1; i <= 5; ++i) {
 			enemyPrefabs.Add (Resources.Load("Prefabs/EnemyTemplate/Enemy" + i));
 		}
-		difficulty = 1;
+		difficulty = startDifficulty;
 
 		//Load datas from patterns informations
 	
@@ -82,7 +85,7 @@ public class EnemyFactory : MonoBehaviour {
 
 			//bundle = Resources.Load ("Prefabs/Pattern" + Random.Range((int)1, (int)12));
 
-			difficulty += 1;
+			difficulty = Mathf.Min(maxDifficulty,difficulty+1);
 		}
 	}
 
