@@ -14,7 +14,7 @@ public class EnemyFactory : MonoBehaviour {
 	public GameObject warning;
 	public int startDifficulty = 3;
 	public int maxDifficulty = 25;
-
+	public int spawnDistance = 15;
 
 	private SpawnPatterns spPat;
 	private List<Object> enemyPrefabs;
@@ -69,7 +69,7 @@ public class EnemyFactory : MonoBehaviour {
 				//Debug.Log ("\t pattern : "+go.name);
 				instance = Instantiate (go) as GameObject;
 
-				Vector3 randomPos = getRandomPosFromFar (20);
+				Vector3 randomPos = getRandomPosFromFar (spawnDistance);
 				//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 				instance.transform.position = randomPos;
 				GameObject warn = Instantiate (warning);

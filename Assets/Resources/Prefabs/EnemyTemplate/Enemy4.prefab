@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3910c18fb52240a3b6523e3fb4f43d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationSpeed: 2
+  translationSpeed: 7
   angularSpeed: 0
   correctionOffset: 2
   objDebug: {fileID: 0}
@@ -234,7 +234,6 @@ MonoBehaviour:
   life: 2
   score: 1000
   spriteBundle: {fileID: 1569274564205982}
-  audio: {fileID: 82140241834228530}
 --- !u!114 &114913098238660388
 MonoBehaviour:
   m_ObjectHideFlags: 1
