@@ -22,6 +22,7 @@ public class EnemyLife : MonoBehaviour {
 		if (life <= 0) {
 			//audio.Play();
 			GameObject.FindGameObjectWithTag ("Score").GetComponent<HUDupdateScore> ().addToScore (score);
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<SFXEngine> ().playSFXKill ();
 			Destroy (this.gameObject);
 
 			spriteBundle.SetActive(true);

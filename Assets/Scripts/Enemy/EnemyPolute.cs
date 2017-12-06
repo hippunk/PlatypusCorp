@@ -24,6 +24,8 @@ public class EnemyPolute : MonoBehaviour {
 	public void polute(){
 		int id = target.GetRandomUninfectedBulletID ();
 		if (id != -1) {
+			
+			target.gameObject.GetComponentInParent<SFXEngine> ().playSFXEat ();
 			target.bulletList [id] = bullet;
 			target.reload = true;
 			target.iPol++;
