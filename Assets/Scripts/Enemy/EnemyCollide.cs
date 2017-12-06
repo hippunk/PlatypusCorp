@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCollide : MonoBehaviour {
 
 	private bool invulnerable = false;
+	private float ghostTime;
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +14,11 @@ public class EnemyCollide : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (invulnerable) {
+			if (Time.time - ghostTime >= 60.0f) {
+				Destroy (this.gameObject);
+			}
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -42,6 +47,8 @@ public class EnemyCollide : MonoBehaviour {
 		//Polute and link when collide
 		if (collision.gameObject.tag == "Player" && !invulnerable) {
 			invulnerable = true;
+			ghostTime = Time.time;
+
 			//GetComponent<MoveToPlayer> ().angularSpeed += 1.0f;
 			Color grey = new Color();
 			grey = Color.gray;
