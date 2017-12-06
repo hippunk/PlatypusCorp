@@ -65,6 +65,7 @@ public class EnemyFactory : MonoBehaviour {
 			//TODO HERE !
 			//Populate difficulty pool
 			//Debug.Log("Difficulty : "+difficulty);
+<<<<<<< HEAD
 			foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
 				//Debug.Log ("\t pattern : "+go.name);
 				instance = Instantiate (go) as GameObject;
@@ -78,6 +79,24 @@ public class EnemyFactory : MonoBehaviour {
 
 				generate (instance);
 				Destroy (instance);
+=======
+			//if (poppedNum < 300) {
+			if (_dynamics_.transform.childCount < 300) {
+				foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
+					//Debug.Log ("\t pattern : "+go.name);
+					instance = Instantiate (go) as GameObject;
+
+					Vector3 randomPos = getRandomPosFromFar (20);
+					//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
+					instance.transform.position = randomPos;
+					GameObject warn = Instantiate (warning);
+					warn.GetComponent<SpriteRenderer> ().color = new Color (1.0f, 1 - (((float)spPat.getDifficultyOfPattern (go)) / ((float)spPat.getMaxDifficulty ())), 0.0f);
+					warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
+
+					generate (instance);
+					Destroy (instance);
+				}
+>>>>>>> refs/remotes/origin/dev/fix
 			}
 
 			//
@@ -109,29 +128,8 @@ public class EnemyFactory : MonoBehaviour {
 			generatedEnemy.transform.position = child.position;
 			generatedEnemy.transform.position = new Vector3(generatedEnemy.transform.position.x,
 				generatedEnemy.transform.position.y, -5.0f);
-			
+
 
 		}
-		/*foreach (Transform child in pack.transform) {
-			//randomIndex = Random.Range ((int)0, pack.transform.childCount);
-			//child.gameObject.AddComponent (movementScriptList[randomIndex]);
-
-			generatedEnemy = Instantiate (enemyPrefabs [Random.Range ((int)0, (int)enemyPrefabs.Count)]) as GameObject;
-			//Vector3 pos = generatedEnemy.transform.localPosition;
-			generatedEnemy.transform.SetParent (_dynamics_.transform);
-			generatedEnemy.transform.position = child.position;
-			generatedEnemy.transform.position = new Vector3(generatedEnemy.transform.position.x,
-				generatedEnemy.transform.position.x, -5.0f);
-			//generatedEnemy.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);
-
-			/*if (Random.Range (0.0f, 1.0f) < 0.3f) {
-				child.GetComponent<MoveToPlayer>().angularSpeed = 0;
-				child.GetComponent<MoveToPlayer>().translationSpeed += 2;
-			}
-			else
-				child.GetComponent<MoveToPlayer>().angularSpeed += Random.Range(-0.5f, 0.5f);
-			child.GetComponent<MoveToPlayer>().translationSpeed += Random.Range(-0.5f, 0.5f);*/
-
-		//}
 	}
 }

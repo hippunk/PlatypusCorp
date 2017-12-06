@@ -8,11 +8,15 @@ public class EnemyLife : MonoBehaviour {
 	public int score = 100;
 	private bool upgraded;
 	public GameObject spriteBundle;
+	private float spawnedTime;
+	private GameObject camera;
 	//public AudioSource audio;
 
 	// Use this for initialization
 	void Start () {
 		upgraded = false;
+		spawnedTime = Time.time;
+		camera = GameObject.FindGameObjectWithTag ("MainCamera");
 	}
 	
 	// Update is called once per frame
@@ -22,11 +26,22 @@ public class EnemyLife : MonoBehaviour {
 		if (life <= 0) {
 			//audio.Play();
 			GameObject.FindGameObjectWithTag ("Score").GetComponent<HUDupdateScore> ().addToScore (score);
+<<<<<<< HEAD
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<SFXEngine> ().playSFXKill ();
 			Destroy (this.gameObject);
+=======
+			getDestroyed();
+>>>>>>> refs/remotes/origin/dev/fix
 
 			spriteBundle.SetActive(true);
 		}
+
+		if (Vector2.Distance (camera.transform.position, transform.position) > 30) {
+			if (Time.time - spawnedTime > 60.0f) {
+				getDestroyed ();
+			}
+		}
+
 	}
 
 	public void damageLife(){
@@ -41,6 +56,11 @@ public class EnemyLife : MonoBehaviour {
 			upgraded = true;
 			this.gameObject.transform.localScale *= 2;
 		}
+	}
+
+	public void getDestroyed(){
+		
+		Destroy (this.gameObject);
 	}
 
 
