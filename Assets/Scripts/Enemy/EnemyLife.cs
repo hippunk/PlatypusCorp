@@ -8,9 +8,7 @@ public class EnemyLife : MonoBehaviour {
 	public int score = 100;
 	private bool upgraded;
 	public GameObject spriteBundle;
-	public float spawnedTime;
-	public int distanceOutScreen = 15;
-	public float ttlOutScreen = 5.0f;
+	private float spawnedTime;
 	private GameObject myCamera;
 	//public AudioSource audio;
 
@@ -37,7 +35,7 @@ public class EnemyLife : MonoBehaviour {
 		}
 
 		if (Vector2.Distance (myCamera.transform.position, transform.position) > 30) {
-			if (Time.time - spawnedTime > ttlOutScreen) {
+			if (Time.time - spawnedTime > 60.0f) {
 				getDestroyed ();
 			}
 		}
