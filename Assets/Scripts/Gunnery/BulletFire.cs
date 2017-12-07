@@ -97,7 +97,7 @@ public class BulletFire : MonoBehaviour {
 			if (bulletList [i].GetComponent<Bullet>().recoverTag() == colorType) {
 				bulletList [i] = regularBullet;
 				hud.recoverBullet ();
-				reload = false;
+				reload = true;
 				return;
 			}
 		}

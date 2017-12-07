@@ -16,6 +16,8 @@ public class EnemyFactory : MonoBehaviour {
 	public int maxDifficulty = 25;
 	public int spawnDistance = 15;
 
+	public int maxInstances = 200;
+
 	private SpawnPatterns spPat;
 	private List<Object> enemyPrefabs;
 	private int difficulty;
@@ -66,12 +68,12 @@ public class EnemyFactory : MonoBehaviour {
 			//Populate difficulty pool
 			//Debug.Log("Difficulty : "+difficulty);
 			//if (poppedNum < 300) {
-			if (_dynamics_.transform.childCount < 300) {
+			if (_dynamics_.transform.childCount < maxInstances) {
 				foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
 					//Debug.Log ("\t pattern : "+go.name);
 					instance = Instantiate (go) as GameObject;
 
-					Vector3 randomPos = getRandomPosFromFar (20);
+					Vector3 randomPos = getRandomPosFromFar (spawnDistance);
 					//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
 					instance.transform.position = randomPos;
 					GameObject warn = Instantiate (warning);
@@ -94,7 +96,13 @@ public class EnemyFactory : MonoBehaviour {
 
 	public Vector3 getRandomPosFromFar(int distance){
 		//Vector3 normVect = new Vector3(Mathf.Cos(Random.Range(0.0f, 2 * Mathf.PI)), Mathf.Sin(Random.Range(0.0f, 2 * Mathf.PI)) , 0);
-		Vector3 normVect = (new Vector3(Random.Range(-100.0f, 100.0f), Random.Range(-100.0f, 100.0f), 0.0f)).normalized;
+
+		float horizontal = 1-Input.GetAxis ("Horizontal");
+		float vertical = 1-Input.GetAxis ("Vertical");
+		Vector2 velocity = new Vector2 (horizontal,vertical);
+		velocity.Normalize ();
+
+		Vector3 normVect = (new Vector3(Random.Range(-100.0f*velocity.x, 100.0f*(1-velocity.x)), Random.Range(-100.0f*velocity.y, 100.0f*(1-velocity.y)), 0.0f)).normalized;
 		//Debug.Log ("Normalized vect: " + normVect);
 		return (normVect * distance) + mainCamera.transform.position;
 		//return ((new Vector3 (Mathf.Ceil(Random.Range (-1.0f, 1.0f)), Mathf.Ceil(Random.Range (-1.0f, 1.0f)), 0)) + mainCamera.transform.position) * distance;
