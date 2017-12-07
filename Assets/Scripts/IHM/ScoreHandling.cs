@@ -19,8 +19,6 @@ using UnityEngine.UI;
 
 public class ScoreHandling : MonoBehaviour {
 
-	string path = "Assets/Scores";
-
 	public Text[] score; 
 
 	public GameObject submit;

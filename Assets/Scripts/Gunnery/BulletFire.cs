@@ -35,25 +35,26 @@ public class BulletFire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Time.timeScale != 0) { //Dirty pause handling
+
+			rofTimer = (rofTimer <= 0) ? 0 : rofTimer - Time.deltaTime; //Timer between attacks
 
 
-		rofTimer = (rofTimer<=0)?0:rofTimer-Time.deltaTime; //Timer between attacks
+			if (Input.GetMouseButton (0) && rofTimer <= 0) {
+				reload = true;
+				rofTimer = fireRate;
+				Instantiate (bulletList [curBullet], transform.position, transform.rotation);
+				//bullet.regBullet = regularBullet;
 
-
-		if (Input.GetMouseButton(0) && rofTimer <= 0) {
-			reload = true;
-			rofTimer = fireRate;
-			Instantiate (bulletList[curBullet],transform.position,transform.rotation);
-			//bullet.regBullet = regularBullet;
-			
-			curBullet = curBullet+1>=maxBullet?0:curBullet+1;
-		}
+				curBullet = curBullet + 1 >= maxBullet ? 0 : curBullet + 1;
+			}
 	
-		if (iPol >= maxBullet) {
+			if (hud.left <= 0) {
 			
-			Debug.Log ("GameOver");
-			StartCoroutine(GameOver());
+				Debug.Log ("GameOver");
+				StartCoroutine (GameOver ());
 
+			}
 		}
 	}
 

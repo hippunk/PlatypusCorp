@@ -65,21 +65,6 @@ public class EnemyFactory : MonoBehaviour {
 			//TODO HERE !
 			//Populate difficulty pool
 			//Debug.Log("Difficulty : "+difficulty);
-<<<<<<< HEAD
-			foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
-				//Debug.Log ("\t pattern : "+go.name);
-				instance = Instantiate (go) as GameObject;
-
-				Vector3 randomPos = getRandomPosFromFar (spawnDistance);
-				//instance.transform.position = spawnPointList[Random.Range((int)0, (int)spawnPointList.Count)].transform.position;
-				instance.transform.position = randomPos;
-				GameObject warn = Instantiate (warning);
-				warn.GetComponent<SpriteRenderer> ().color = new Color (1.0f,1-(((float)spPat.getDifficultyOfPattern(go))/((float)spPat.getMaxDifficulty())),0.0f);
-				warn.GetComponent<AlignWithPlayer> ().dest = instance.transform.position;
-
-				generate (instance);
-				Destroy (instance);
-=======
 			//if (poppedNum < 300) {
 			if (_dynamics_.transform.childCount < 300) {
 				foreach (GameObject go in spPat.getRandomPattern(difficulty)) {
@@ -96,7 +81,6 @@ public class EnemyFactory : MonoBehaviour {
 					generate (instance);
 					Destroy (instance);
 				}
->>>>>>> refs/remotes/origin/dev/fix
 			}
 
 			//

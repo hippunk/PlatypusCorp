@@ -6,20 +6,20 @@ public class SFXEngine : MonoBehaviour {
 
 	public AudioClip killClip;
 	public AudioClip eatClip;
-	private AudioSource audio;
+	private AudioSource audioSource;
 
 	void Start () {
-		audio = GetComponent<AudioSource> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	public void playSFXKill(){
-		audio.clip = killClip;
-		audio.Play ();
+		audioSource.clip = killClip;
+		audioSource.Play ();
 	}
 
 	public void playSFXEat(){
-		audio.clip = eatClip;
-		audio.Play ();
+		audioSource.clip = eatClip;
+		audioSource.Play ();
 	}
 
 }

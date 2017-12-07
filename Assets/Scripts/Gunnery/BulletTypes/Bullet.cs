@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class Bullet : MonoBehaviour {
-	public string tag;
+	public string bulletTag;
 	public bool hasTouched = false;
 	public int damage = 1;
 
@@ -18,11 +18,11 @@ abstract public class Bullet : MonoBehaviour {
 	}
 
 	protected void setupTag(string value){
-		tag = value;
+		bulletTag = value;
 	}
 
 	public string recoverTag(){
-		return tag;
+		return bulletTag;
 	}
 
 	public virtual void onTouch (GameObject touched){

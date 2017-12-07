@@ -7,7 +7,7 @@ public class HUDupdateBulletLeft : MonoBehaviour {
 	public Text field;
 	public Text field2;
 	public BulletFire gun;
-	private int left;
+	public int left;
 	// Use this for initialization
 	void Start () {
 		left = gun.maxBullet;

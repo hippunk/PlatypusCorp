@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float vertExtent = Camera.main.orthographicSize;    
-		float horzExtent = vertExtent * Screen.width / Screen.height;
+		//float horzExtent = vertExtent * Screen.width / Screen.height;
 
 		//Définition limite du monde
 		/*float Olim = wl.transform.position.x - wl.bounds.size.x / 2  + 0.01f;
@@ -29,10 +29,10 @@ public class CameraFollow : MonoBehaviour {
 
 
 		//Définition limites caméra
-		float COlim = Camera.main.transform.position.x - horzExtent ;
+		/*float COlim = Camera.main.transform.position.x - horzExtent ;
 		float CElim = Camera.main.transform.position.x + horzExtent ;
 		float CSlim = Camera.main.transform.position.y - vertExtent ;
-		float CNlim = Camera.main.transform.position.y + vertExtent ;
+		float CNlim = Camera.main.transform.position.y + vertExtent ;*/
 
 		int Xgap10 = (int)(Camera.main.pixelHeight * rangeX);
 		int Ygap10 = (int)(Camera.main.pixelWidth * rangeY);
