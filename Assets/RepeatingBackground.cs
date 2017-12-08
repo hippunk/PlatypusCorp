@@ -15,10 +15,9 @@ public class RepeatingBackground : MonoBehaviour {
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
 		background = transform.gameObject.GetComponent<SpriteRenderer> ();
 
-		marginX = new Vector3(Mathf.Round(background.sprite.bounds.extents.x), 0.0f, 0.0f);
-		marginY = new Vector3(0.0f, Mathf.Round(background.sprite.bounds.extents.y), 0.0f);
+		marginX = new Vector3(Mathf.Round(background.sprite.bounds.extents.x)-0.04f, 0.0f, 0.0f);
+		marginY = new Vector3(0.0f, Mathf.Round(background.sprite.bounds.extents.y)-0.04f, 0.0f);
 
-		Debug.Log ("margins: " + marginX.x + "/" + marginY.y);
 
 		centerPointX = 0.0f;//mainCamera.transform.position.x;
 		centerPointY = 0.0f;//mainCamera.transform.position.y;
