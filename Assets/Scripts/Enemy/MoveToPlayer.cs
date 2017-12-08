@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveToPlayer : MonoBehaviour {
-	private GameObject target = null;
+	protected GameObject target = null;
 	public float translationSpeed = 2.0f;
 	public float angularSpeed = 2.0f;
 	public float correctionOffset = 2.0f;
-	private bool upgraded = false;
+	protected bool upgraded = false;
 
 	public GameObject objDebug;
 
-	private bool evade = false;
-	private float correctionAngle = 0;
+	protected bool evade = false;
+	protected float correctionAngle = 0;
 	// Use this for initialization
 	void Start () {
 		//objDebug = new GameObject ();

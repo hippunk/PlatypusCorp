@@ -35,12 +35,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4147984298566774}
-  - component: {fileID: 114922872801607330}
   - component: {fileID: 114688332682229430}
   - component: {fileID: 114520600601767924}
   - component: {fileID: 114684724820735426}
   - component: {fileID: 50729100683576080}
   - component: {fileID: 70781033365052324}
+  - component: {fileID: 114829553273286902}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -124,6 +124,8 @@ MonoBehaviour:
   life: 1
   score: 1000
   spriteBundle: {fileID: 1229326379480090}
+  ttlOutScreen: 5
+  outScreenRange: 13
 --- !u!114 &114684724820735426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b00f16071d65644b620a0efae69425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114922872801607330
+--- !u!114 &114829553273286902
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -157,13 +159,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330202160263250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3910c18fb52240a3b6523e3fb4f43d1, type: 3}
+  m_Script: {fileID: 11500000, guid: ecffa909ce221451e84e3d79568d5cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationSpeed: 6
-  angularSpeed: 0
-  correctionOffset: 2
-  objDebug: {fileID: 0}
+  angularSpeed: 10
+  translationSpeed: 10
+  aimTime: 2
+  dashTime: 1.5
 --- !u!212 &212262818270520006
 SpriteRenderer:
   m_ObjectHideFlags: 1
