@@ -164,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angularSpeed: 10
   translationSpeed: 10
-  aimTime: 2
-  dashTime: 1.5
+  aimTime: 0.5
+  dashTime: 1
 --- !u!212 &212262818270520006
 SpriteRenderer:
   m_ObjectHideFlags: 1

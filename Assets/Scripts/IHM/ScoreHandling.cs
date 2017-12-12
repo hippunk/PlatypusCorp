@@ -19,11 +19,14 @@ using UnityEngine.UI;
 
 public class ScoreHandling : MonoBehaviour {
 
-	public Text[] score; 
+	public GameObject scoreRow; 
+	public RectTransform content; 
+	public GameObject scorePanel;
 
 	public GameObject submit;
 	public Text pseudo;
 	public HUDupdateScore hud;
+	public int nbScores = 10;
 	dreamloLeaderBoard dl;
 	List<dreamloLeaderBoard.Score> scoreList = new List<dreamloLeaderBoard.Score>();
 	bool updateRequest = true;
@@ -41,6 +44,7 @@ public class ScoreHandling : MonoBehaviour {
 			dl.LoadScores ();
 			updateRequest = false;
 			fetchScores = true;
+			submit.SetActive (false);
 		}
 		if(fetchScores){
 			Debug.Log ("fetchScores");
@@ -50,6 +54,9 @@ public class ScoreHandling : MonoBehaviour {
 				populateBoard ();
 
 				fetchScores = false;
+				if (isInTop ()) {
+					submit.SetActive (true);
+				}
 				oldCount = scoreList.Count ();
 			}
 		}
@@ -58,8 +65,16 @@ public class ScoreHandling : MonoBehaviour {
 	void populateBoard(){
 		int count = 0;
 		foreach(dreamloLeaderBoard.Score currentScore in scoreList){
-			score [count].text = (count+1)+" : " + currentScore.playerName + " " + currentScore.score.ToString();
-			if (count >= 4) break;
+			content.sizeDelta = new Vector2(content.sizeDelta.x,30 * nbScores);
+			//score [count].transform.GetChild(1).GetComponent<Text>().text = currentScore.playerName ;
+			//score [count].transform.GetChild(2).GetComponent<Text>().text = currentScore.score.ToString();
+			GameObject row = Instantiate(scoreRow,scorePanel.transform);
+			RectTransform rowRect = row.GetComponent<RectTransform> ();
+			rowRect.sizeDelta = new Vector2 (200, 30);
+			row.transform.GetChild(0).GetComponent<Text>().text = (count+1).ToString() ;
+			row.transform.GetChild(2).GetComponent<Text>().text = currentScore.playerName ;
+			row.transform.GetChild(3).GetComponent<Text>().text = currentScore.score.ToString();
+			if (count >= nbScores-1) break;
 			count++;
 		}
 	}
@@ -75,7 +90,24 @@ public class ScoreHandling : MonoBehaviour {
 
 		//Reorder
 		scoreList.Sort((x, y) => y.score.CompareTo(x.score));
+		//Clean board
+		foreach (Transform child in scorePanel.transform) {
+			Destroy (child.gameObject);
+		}
 		populateBoard ();
 		Debug.Log ("submit");
+	}
+
+	public bool isInTop(){
+		int count = 0;
+		foreach(dreamloLeaderBoard.Score currentScore in scoreList){
+			if (currentScore.score < hud.score)
+				return true;
+
+			if (count >= nbScores-1) break;
+			count++;
+		}
+
+		return false;
 	}
 }
