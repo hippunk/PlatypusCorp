@@ -79,25 +79,6 @@ public class ScoreHandling : MonoBehaviour {
 		}
 	}
 
-	public void addScore(){
-		
-		submit.SetActive (false);
-		dl.AddScore(pseudo.text, hud.score);
-		dreamloLeaderBoard.Score score = new dreamloLeaderBoard.Score ();
-		score.playerName = pseudo.text;
-		score.score = hud.score;
-		scoreList.Add (score);
-
-		//Reorder
-		scoreList.Sort((x, y) => y.score.CompareTo(x.score));
-		//Clean board
-		foreach (Transform child in scorePanel.transform) {
-			Destroy (child.gameObject);
-		}
-		populateBoard ();
-		Debug.Log ("submit");
-	}
-
 	public bool isInTop(){
 		int count = 0;
 		foreach(dreamloLeaderBoard.Score currentScore in scoreList){

@@ -97,14 +97,21 @@ public class EnemyFactory : MonoBehaviour {
 	public Vector3 getRandomPosFromFar(int distance){
 		//Vector3 normVect = new Vector3(Mathf.Cos(Random.Range(0.0f, 2 * Mathf.PI)), Mathf.Sin(Random.Range(0.0f, 2 * Mathf.PI)) , 0);
 
-		float horizontal = 1-Input.GetAxis ("Horizontal");
-		float vertical = 1-Input.GetAxis ("Vertical");
+		float horizontal = Input.GetAxis ("Horizontal");
+		float vertical = Input.GetAxis ("Vertical");
 		Vector2 velocity = new Vector2 (horizontal,vertical);
-		velocity.Normalize ();
+		Debug.Log ("velocity : "+velocity);
+		velocity= velocity.normalized; 
+		Debug.Log ("velocity norm : "+velocity);
+		Vector3 normVect = (new Vector3(Random.Range(-100.0f, 100.0f), Random.Range(-100.0f, 100.0f), 0.0f)).normalized*0.5f;
+		Debug.Log ("norm rand : "+normVect);
 
-		Vector3 normVect = (new Vector3(Random.Range(-100.0f*velocity.x, 100.0f*(1-velocity.x)), Random.Range(-100.0f*velocity.y, 100.0f*(1-velocity.y)), 0.0f)).normalized;
-		//Debug.Log ("Normalized vect: " + normVect);
-		return (normVect * distance) + mainCamera.transform.position;
+		Vector3 dir = (new Vector3(normVect.x+velocity.x,normVect.y+velocity.y,0)).normalized;
+		Debug.Log ("dir : "+velocity);
+
+		Debug.Log (normVect);
+		Debug.Log (dir);
+		return (dir * distance) + mainCamera.transform.position;
 		//return ((new Vector3 (Mathf.Ceil(Random.Range (-1.0f, 1.0f)), Mathf.Ceil(Random.Range (-1.0f, 1.0f)), 0)) + mainCamera.transform.position) * distance;
 	}
 

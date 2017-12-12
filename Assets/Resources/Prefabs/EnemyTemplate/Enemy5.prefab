@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
-  score: 1000
+  score: 500
   spriteBundle: {fileID: 1890307892878530}
   ttlOutScreen: 2
   outScreenRange: 13
