@@ -26,7 +26,7 @@ public class EnemyPolute : MonoBehaviour {
 		if (id != -1) {
 			
 			target.gameObject.GetComponentInParent<SFXEngine> ().playSFXEat ();
-			Destroy (GetComponent<Rigidbody2D> ());
+			//Destroy (GetComponent<Rigidbody2D> ());
 			target.bulletList [id] = bullet;
 			target.reload = true;
 			target.iPol++;

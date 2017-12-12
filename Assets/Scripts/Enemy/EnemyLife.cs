@@ -37,8 +37,8 @@ public class EnemyLife : MonoBehaviour {
 			spriteBundle.SetActive(true);
 		}
 
-		if (Vector2.Distance (myCamera.transform.position, transform.position) > ttlOutScreen) {
-			if (Time.time - spawnedTime > outScreenRange) {
+		if (Vector2.Distance (myCamera.transform.position, transform.position) > outScreenRange) {
+			if (Time.time - spawnedTime > ttlOutScreen) {
 				getDestroyed ();
 			}
 		}

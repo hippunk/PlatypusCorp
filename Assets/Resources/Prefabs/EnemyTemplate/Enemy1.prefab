@@ -124,7 +124,7 @@ MonoBehaviour:
   life: 1
   score: 1000
   spriteBundle: {fileID: 1229326379480090}
-  ttlOutScreen: 5
+  ttlOutScreen: 2
   outScreenRange: 13
 --- !u!114 &114684724820735426
 MonoBehaviour:
