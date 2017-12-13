@@ -16,7 +16,15 @@ public class EnemyFactory : MonoBehaviour {
 	public int maxDifficulty = 25;
 	public int spawnDistance = 15;
 
+	public float horAcc = 0.0f;
+	public float vertAcc = 0.0f;
+	public float accSpeed = 0.5f;
+	public float accDecreaseFactor = 1.0f;
+	public float accClamp = 1.6f;
+	public float accDelay = 1.2f;
+
 	public int maxInstances = 200;
+	float accumulator = 0;
 
 	private SpawnPatterns spPat;
 	private List<Object> enemyPrefabs;
@@ -45,6 +53,28 @@ public class EnemyFactory : MonoBehaviour {
 			workRequest = false;
 			StartCoroutine (makeEnemies ());
 		}
+		float horizontal = Input.GetAxis ("Horizontal");
+		float vertical = Input.GetAxis ("Vertical");
+
+		//Manage accumulators for pop angle
+		if (horizontal != 0)
+			horAcc += Time.deltaTime * accSpeed * horizontal;
+		else {
+			horAcc += Time.deltaTime * accSpeed*accDecreaseFactor * (horAcc < 0 ? 1 : -1);
+			if (Mathf.Abs(horAcc) < 0.05)
+				horAcc = 0;
+		}	
+		if (vertical != 0)
+			vertAcc += Time.deltaTime * accSpeed * vertical;
+		else {
+			vertAcc += Time.deltaTime * accSpeed*accDecreaseFactor * (vertAcc < 0 ? 1 : -1);
+			if (Mathf.Abs(vertAcc) < 0.05)
+				vertAcc = 0;
+		}
+
+		//Clamp accumulators
+		horAcc = Mathf.Max(-1,Mathf.Min(1,horAcc));
+		vertAcc = Mathf.Max(-1,Mathf.Min(1,vertAcc));
 	}
 
 	public void startWorking(){
@@ -93,25 +123,84 @@ public class EnemyFactory : MonoBehaviour {
 			difficulty = Mathf.Min(maxDifficulty,difficulty+1);
 		}
 	}
+	void OnDrawGizmosSelected() {
+		//Gizmo code for understand and watch algorithm
+		Vector3 camPos = Camera.main.transform.position;
+		camPos.z = 0;
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawWireSphere(camPos, 1);
 
+		//float horizontal = Input.GetAxis ("Horizontal");
+		//float vertical = Input.GetAxis ("Vertical");
+
+
+
+		Vector3 velocity = new Vector3();//(new Vector3 (horAcc,vertAcc,0)).normalized;
+
+		//velocity.Normalize ();
+		//Debug.Log ("velocity : "+velocity);
+		velocity.x = horAcc* Mathf.Sqrt(1.0f - 0.5f*Mathf.Pow(vertAcc,2))*accClamp;
+		velocity.y = vertAcc * Mathf.Sqrt (1.0f - 0.5f*Mathf.Pow (horAcc, 2))*accClamp;
+		velocity.z = 0;
+		//velocity= new Vector3(horAcc*2.0f,vertAcc*2.0f,0); 
+
+		Vector3 dir = camPos + velocity;
+		dir.z = 0;
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireSphere(dir, accDelay);
+		//Gizmos.color = Color.red;
+		//Gizmos.DrawWireSphere(mainCamera.transform.position, accClamp);
+		for (int i = 0; i < 100; i++) {
+			Vector3 normVect = (new Vector3 (Random.Range (-100.0f, 100.0f), Random.Range (-100.0f, 100.0f), 0.0f)).normalized * accDelay;
+
+			Vector3 camToDir = dir - camPos;
+
+			Vector3 objectif = camToDir + normVect;
+
+			Gizmos.color = Color.red;
+			Gizmos.DrawLine (camPos, camPos + objectif.normalized);
+		}
+	}
 	public Vector3 getRandomPosFromFar(int distance){
 		//Vector3 normVect = new Vector3(Mathf.Cos(Random.Range(0.0f, 2 * Mathf.PI)), Mathf.Sin(Random.Range(0.0f, 2 * Mathf.PI)) , 0);
 
-		float horizontal = Input.GetAxis ("Horizontal");
+		/*float horizontal = Input.GetAxis ("Horizontal");
 		float vertical = Input.GetAxis ("Vertical");
+
+
 		Vector2 velocity = new Vector2 (horizontal,vertical);
-		Debug.Log ("velocity : "+velocity);
+		//Debug.Log ("velocity : "+velocity);
 		velocity= velocity.normalized; 
-		Debug.Log ("velocity norm : "+velocity);
+
+		//Debug.Log ("velocity norm : "+velocity);
 		Vector3 normVect = (new Vector3(Random.Range(-100.0f, 100.0f), Random.Range(-100.0f, 100.0f), 0.0f)).normalized*0.5f;
-		Debug.Log ("norm rand : "+normVect);
+		//Debug.Log ("norm rand : "+normVect);
 
 		Vector3 dir = (new Vector3(normVect.x+velocity.x,normVect.y+velocity.y,0)).normalized;
-		Debug.Log ("dir : "+velocity);
+		//Debug.Log ("dir : "+velocity);
 
 		Debug.Log (normVect);
-		Debug.Log (dir);
-		return (dir * distance) + mainCamera.transform.position;
+		Debug.Log (dir);*/
+		//camera pos with guarantee z = 0 for normalisations
+		Vector3 camPos = Camera.main.transform.position;
+		camPos.z = 0;
+
+		//Compute vector related to movement accumulators
+		Vector3 velocity = new Vector3();
+		velocity.x = horAcc* Mathf.Sqrt(1.0f - 0.5f*Mathf.Pow(vertAcc,2))*accClamp;
+		velocity.y = vertAcc * Mathf.Sqrt (1.0f - 0.5f*Mathf.Pow (horAcc, 2))*accClamp;
+		velocity.z = 0;
+		//velocity= new Vector3(horAcc*2.0f,vertAcc*2.0f,0); 
+
+		Vector3 dir = camPos + velocity;
+		dir.z = 0;
+		Vector3 normVect = (new Vector3 (Random.Range (-100.0f, 100.0f), Random.Range (-100.0f, 100.0f), 0.0f)).normalized * accDelay;
+
+		Vector3 camToDir = dir - camPos;
+
+		Vector3 objectif = camToDir + normVect;
+
+		return (objectif.normalized * distance) + camPos;
 		//return ((new Vector3 (Mathf.Ceil(Random.Range (-1.0f, 1.0f)), Mathf.Ceil(Random.Range (-1.0f, 1.0f)), 0)) + mainCamera.transform.position) * distance;
 	}
 

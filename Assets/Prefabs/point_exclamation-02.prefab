@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e37a74dc3f28cb44b87336662af5ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 3
   dest: {x: 0, y: 0, z: 0}
   position: {x: 0, y: 0, z: 0}
 --- !u!114 &114511076842789020

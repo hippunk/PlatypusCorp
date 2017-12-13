@@ -245,8 +245,8 @@ MonoBehaviour:
   life: 1
   score: 500
   spriteBundle: {fileID: 1890307892878530}
-  ttlOutScreen: 2
-  outScreenRange: 13
+  ttlOutScreen: 5
+  outScreenRange: 15
 --- !u!212 &212121036075196660
 SpriteRenderer:
   m_ObjectHideFlags: 1

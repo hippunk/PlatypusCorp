@@ -33,6 +33,7 @@ public class ScoreHandling : MonoBehaviour {
 	bool fetchScores = false;
 	int oldCount = 0;
 
+
 	// Use this for initialization
 	void Start () {
 		dl = dreamloLeaderBoard.GetSceneDreamloLeaderboard();
@@ -77,6 +78,25 @@ public class ScoreHandling : MonoBehaviour {
 			if (count >= nbScores-1) break;
 			count++;
 		}
+	}
+
+	public void addScore(){
+
+		submit.SetActive (false);
+		dl.AddScore(pseudo.text, hud.score);
+		dreamloLeaderBoard.Score score = new dreamloLeaderBoard.Score ();
+		score.playerName = pseudo.text;
+		score.score = hud.score;
+		scoreList.Add (score);
+
+		//Reorder
+		scoreList.Sort((x, y) => y.score.CompareTo(x.score));
+		//Clean board
+		foreach (Transform child in scorePanel.transform) {
+			Destroy (child.gameObject);
+		}
+		populateBoard ();
+		Debug.Log ("submit");
 	}
 
 	public bool isInTop(){
