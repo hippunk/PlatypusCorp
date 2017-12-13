@@ -2071,10 +2071,10 @@ MonoBehaviour:
   spawnDistance: 15
   horAcc: 0
   vertAcc: 0
-  accSpeed: 0.1
+  accSpeed: 0.5
   accDecreaseFactor: 5
-  accClamp: 2
-  accDelay: 0.5
+  accClamp: 1.5
+  accDelay: 1.1
   maxInstances: 200
 --- !u!4 &958912853
 Transform:
